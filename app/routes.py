@@ -1,8 +1,7 @@
 from app import app, db
-from app.loginForm import RegistrationForm
 from flask import render_template, flash, redirect, url_for, request
 from werkzeug.urls import url_parse
-from app.loginForm import LoginForm
+from app.loginForm import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 
@@ -64,6 +63,17 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Successfully registered')
+        flash('Successfully registered, please login again')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+
+@app.route('/user/<username>')
+@login_required
+def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = [
+        { 'author': user, 'body': 'Hi, im {}'.format(user.username) },
+        { 'author': user, 'body': 'What a noice day' }
+    ]
+    return render_template('user.html', user=user, posts=posts)
