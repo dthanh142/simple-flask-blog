@@ -73,3 +73,35 @@ Traceback (most recent call last):
 sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username [SQL: 'UPDATE user SET username=?, about_me=? WHERE user.id = ?'] [parameters: ('thanh.phamduc', 'Well well well', 1)] (Background on this error at: http://sqlalche.me/e/gkpj)
 2019-01-06 15:40:11,086 - INFO: Microblog startup [in C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\__init__.py:48]
 2019-01-06 20:56:25,815 - INFO: Microblog startup [in C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\__init__.py:48]
+2019-01-06 22:02:40,583 - INFO: Microblog startup [in C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\__init__.py:48]
+2019-01-06 22:02:52,173 - INFO: Microblog startup [in C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\__init__.py:48]
+2019-01-07 09:57:01,485 - INFO: Microblog startup [in C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\__init__.py:48]
+2019-01-07 10:02:52,395 - INFO: Microblog startup [in C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\__init__.py:48]
+2019-01-07 10:03:49,885 - INFO: Microblog startup [in C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\__init__.py:48]
+2019-01-07 10:04:19,985 - INFO: Microblog startup [in C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\__init__.py:48]
+2019-01-07 11:15:58,631 - INFO: Microblog startup [in C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\__init__.py:48]
+2019-01-07 11:18:40,868 - INFO: Microblog startup [in C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\__init__.py:48]
+2019-01-07 11:46:28,069 - INFO: Microblog startup [in C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\__init__.py:48]
+2019-01-07 11:46:58,247 - ERROR: Exception on /follow/minh.nguyennhu [GET] [in c:\users\thanhpd8\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\thanhpd8\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\thanhpd8\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\thanhpd8\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\thanhpd8\appdata\local\programs\python\python37-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\thanhpd8\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\thanhpd8\appdata\local\programs\python\python37-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\thanhpd8\appdata\local\programs\python\python37-32\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\routes.py", line 116, in follow
+    current_user.follow(username)
+  File "C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\models.py", line 43, in follow
+    if not self.is_following(user):
+  File "C:\Users\thanhpd8\Downloads\learning-python\learning-flask\microblog\app\models.py", line 51, in is_following
+    return self.followed.filter(followers.c.followed_id == user.id).count() > 0
+AttributeError: 'str' object has no attribute 'id'
