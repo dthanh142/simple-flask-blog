@@ -30,8 +30,8 @@ from app import routes, models, errors
 
 @babel.localeselector
 def get_locale():
-    # return request.accept_languages.best_match(app.config['LANGUAGES'])
-    return 'es'
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    # return 'es'
 
 
 if not app.debug:
