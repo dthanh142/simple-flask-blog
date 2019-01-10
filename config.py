@@ -1,5 +1,8 @@
 import os
+from dotenv import load_dotenv
+
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'thanh0412'
@@ -7,11 +10,11 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POSTS_PER_PAGE = 5
     # LANGUAGES = ['en', 'es']
-    LANGUAGES = ['vi']
+    LANGUAGES = ['vi', 'en', 'es']
 
     # translator
-    # MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
-    MS_TRANSLATOR_KEY = "bae14e6af98344368b522c0fb69c2747"
+    MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
+
     # mail config
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
     MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)
